@@ -1,0 +1,212 @@
+/* =========================================
+   1. BASE & TYPOGRAPHY (Global Styles)
+   ========================================= */
+* {
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #121212; /* Deep dark grey/almost black background */
+    color: #e0e0e0; /* Soft light grey text for readability */
+    line-height: 1.6;
+}
+
+h1, h2, h3, label strong {
+    color: #ffffff; /* Crisp white for headings and labels */
+}
+
+a {
+    text-decoration: none;
+}
+
+/* =========================================
+   2. LAYOUT CONTAINERS
+   ========================================= */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.intro-text, .book-detail-container {
+    background-color: #1e1e1e; /* Slightly lighter grey so the boxes "float" */
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4); /* Darker, deeper shadow */
+}
+
+.intro-text {
+    padding: 25px 35px;
+    margin-bottom: 40px;
+    border-left: 5px solid #007BFF; 
+}
+
+.book-detail-container {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 40px;
+}
+
+/* =========================================
+   3. THE BOOK GRID & CARDS
+   ========================================= */
+.book-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.book-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 240px;
+    padding: 20px;
+    background-color: #1e1e1e; /* Matches the containers */
+    border: 1px solid #333; /* Subtle dark border */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.book-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+}
+
+.book-cover {
+    height: 220px;
+    object-fit: cover;
+    border-radius: 4px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.4);
+    margin-bottom: 15px;
+}
+
+.title {
+    margin: 0 0 5px 0;
+    font-size: 1.15rem;
+    text-align: center;
+    font-weight: 600;
+}
+
+.author, .rating {
+    margin: 2px 0;
+    color: #aaaaaa; /* Medium grey for subtext */
+    font-size: 0.95rem;
+    text-align: center;
+}
+
+/* =========================================
+   4. BUTTONS
+   ========================================= */
+button { font-family: inherit; }
+
+.btn-read, .btn-save, .btn-edit, .add-btn {
+    display: inline-block;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: 10px;
+}
+
+.btn-read:hover, .btn-save:hover, .btn-edit:hover, .add-btn:hover {
+    background-color: #0056b3;
+}
+
+.btn-delete {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-delete:hover { background-color: #c82333; }
+
+.btn-back {
+    background-color: #444; /* Darker back button to match theme */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-back:hover { background-color: #666; }
+
+.action-buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: 30px;
+    align-items: center;
+}
+
+.action-buttons .btn-edit,
+.action-buttons .btn-delete,
+.action-buttons .btn-back,
+.action-buttons button {
+    margin-top: 0 !important;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+/* =========================================
+   5. FORMS & INPUTS (Dark Mode)
+   ========================================= */
+input[type="text"], 
+input[type="number"], 
+textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #444;
+    border-radius: 6px;
+    background-color: #2a2a2a; /* Dark background inside the text box */
+    color: #ffffff; /* White text when typing */
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+input[type="text"]:focus, 
+input[type="number"]:focus, 
+textarea:focus {
+    outline: none;
+    border-color: #007BFF;
+    background-color: #333;
+}
+
+/* =========================================
+   6. SEARCH PAGE SPECIFICS
+   ========================================= */
+.search-form {
+    display: flex;
+    gap: 10px;
+    align-items: center; 
+}
+.search-form input[type="text"] {
+    flex-grow: 1;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+.search-form button {
+    margin-top: 0;
+    padding: 12px 25px;
+}

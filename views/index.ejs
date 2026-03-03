@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Notes | Shorya</title>
+    <link rel="stylesheet" href="/styles/main.css">
+</head>
+<body>
+      <%- include('partials/header.ejs'); -%>
+        <div style="text-align: center; margin-bottom: 30px; margin-top: 10px;">
+            <a href="/search-page">
+                <button class="add-btn">+ Add New Book</button>
+            </a>
+        </div>
+    <div class="container">
+    
+    
+
+     <div class="intro-text">
+        <p>
+            In a world overflowing with information, the true challenge isn't finding 
+            good books—it's retaining the wisdom they offer. We have all experienced 
+            the frustration of finishing a masterpiece, only to have its intricate 
+            details fade from memory weeks later. This platform is my solution to that 
+            inevitable decay.
+        </p>
+        <p>
+            Welcome to my digital archive. This isn't just a static list of titles; 
+            it is a living documentation of my intellectual journey. Here, I preserve 
+            the narratives that moved me, the arguments that challenged me, and the 
+            specific insights I want to carry forward. 
+        </p>
+        <p>
+            Powered by the <strong>Open Library API</strong> and built on a custom 
+            <strong>PostgreSQL</strong> backbone, this application ensures that 
+            no good idea gets lost in the noise. Whether you are looking for your 
+            next great read or curious about my takeaways from a classic, feel free 
+            to explore the collection below.
+        </p>
+    </div>
+    <div>
+        
+    <h2>Books That I Have Read</h2>
+    
+    <div class="book-grid">
+        
+        <% for(let book of books){ %>
+            <div class="book-card">
+                <img src="https://covers.openlibrary.org/b/id/<%= book.cover_id %>-M.jpg" alt="Book Cover" class="book-cover">
+                <h3 class="title"><%= book.title %></h3>
+                <p class="author">by <%= book.author %></p>
+                <p class="rating">Rating: <%= book.rating %>/10</p>
+                
+                <a href="/book/<%= book.id %>">
+                    <button class="btn-read">Read My Notes</button>
+                </a>
+            </div>
+        <% } %>
+
+    </div>
+</body>
+</html>

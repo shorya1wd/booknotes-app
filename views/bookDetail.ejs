@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <%- include('partials/header.ejs'); -%>
+
+<div class="book-detail-container" style="max-width: 800px;">
+    <div style="text-align: center; margin-bottom: 30px;">
+        <img src="https://covers.openlibrary.org/b/id/<%= book.cover_id %>-M.jpg" alt="Book Cover" class="book-cover" style="height: 280px; width: auto; margin-bottom: 20px;">
+        
+        <h1 class="title" style="font-size: 2rem; margin-bottom: 5px;"><%= book.title %></h1>
+        <p class="author" style="font-size: 1.1rem; color: #aaa;">By <strong><%= book.author %></strong></p>
+        <p class="rating" style="font-size: 1.1rem; color: #007BFF; font-weight: bold; margin-top: 10px;">Rating: <%= book.rating %>/10</p>
+    </div>
+
+    <hr style="border: 0; height: 1px; background: #444; margin: 30px 0;">
+
+    <h2 style="margin-bottom: 15px;">My Notes</h2>
+    
+    <div id="view-mode">
+        <p style="white-space: pre-wrap; line-height: 1.8; color: #e0e0e0; font-size: 1.05rem;"><%= book.review %></p>
+        
+    
+        <div class="action-buttons" style="justify-content: center; margin-top: 40px;">
+            <button onclick="toggleEdit()" class="btn-edit">Edit Notes</button>
+
+            <form action="/delete/<%= book.id %>" method="POST" style="margin: 0;">
+                <button type="submit" class="btn-delete" onclick="return confirm('Are you sure you want to delete this book? This cannot be undone.');">Delete</button>
+            </form>
+
+            <a href="/" class="btn-back">← Back to Library</a>
+        </div>
+    </div>
+
+    <div id="edit-mode" style="display: none;">
+        <form action="/edit/<%= book.id %>" method="POST">
+            <textarea name="updatedReview" rows="15" required style="width: 100%; padding: 15px; border-radius: 8px; border: 1px solid #ccc; line-height: 1.6; font-size: 1.05rem;"><%= book.review %></textarea>
+            
+            <div class="action-buttons" style="justify-content: center; margin-top: 20px;">
+                <button type="submit" class="btn-save">Save Changes</button>
+                <button type="button" onclick="toggleEdit()" class="btn-back">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    function toggleEdit() {
+        const viewMode = document.getElementById('view-mode');
+        const editMode = document.getElementById('edit-mode');
+        
+        if (viewMode.style.display === 'none') {
+            viewMode.style.display = 'block';
+            editMode.style.display = 'none';
+        } else {
+            viewMode.style.display = 'none';
+            editMode.style.display = 'block';
+        }
+    }
+</script>
+</body>
+</html>

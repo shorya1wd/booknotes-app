@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <%- include('partials/header.ejs'); -%>
+
+<div class="book-detail-container">
+    <h1 style="text-align: center;">Add a New Book</h1>
+
+    <form action="/add" method="POST">
+        <div>
+            <label><strong>Book Title:</strong></label>
+            <input type="text" name="title" value="<%= locals.title || '' %>" required>
+        </div>
+
+        <div>
+            <label><strong>Author:</strong></label>
+            <input type="text" name="author" value="<%= locals.author || '' %>" required>
+        </div>
+
+        <div>
+            <label><strong>Rating (1-10):</strong></label>
+            <input type="number" name="rating" min="1" max="10" required>
+        </div>
+
+        <div>
+            <label><strong>Review/Notes:</strong></label>
+            <textarea name="review" rows="6" required></textarea>
+        </div>
+
+        <div>
+            <label><strong>Cover ID:</strong></label>
+            <input type="text" name="cover_id" value="<%= locals.cover_id || '' %>" required>
+        </div>
+
+        <div style="text-align: center; margin-top: 10px;">
+            <button type="submit" class="btn-save" style="width: 100%; font-size: 1.1rem;">Save Book to Library</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>
