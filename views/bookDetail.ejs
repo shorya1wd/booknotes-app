@@ -27,11 +27,13 @@
         
     
         <div class="action-buttons" style="justify-content: center; margin-top: 40px;">
+            <% if (locals.isAuthenticated) { %>
             <button onclick="toggleEdit()" class="btn-edit">Edit Notes</button>
 
             <form action="/delete/<%= book.id %>" method="POST" style="margin: 0;">
                 <button type="submit" class="btn-delete" onclick="return confirm('Are you sure you want to delete this book? This cannot be undone.');">Delete</button>
             </form>
+            <% } %>
 
             <a href="/" class="btn-back">← Back to Library</a>
         </div>

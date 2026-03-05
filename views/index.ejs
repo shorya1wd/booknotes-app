@@ -8,11 +8,13 @@
 </head>
 <body>
       <%- include('partials/header.ejs'); -%>
+      <% if (locals.isAuthenticated) { %>
         <div style="text-align: center; margin-bottom: 30px; margin-top: 10px;">
             <a href="/search-page">
                 <button class="add-btn">+ Add New Book</button>
             </a>
         </div>
+        <% } %>
     <div class="container">
     
     

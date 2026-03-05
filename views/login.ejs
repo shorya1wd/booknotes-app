@@ -1,0 +1,11 @@
+<%- include('partials/header.ejs'); -%>
+
+<div class="book-detail-container" style="text-align: center; max-width: 400px;">
+    <h1>Admin Access</h1>
+    <p>Only the owner can log in to modify the library.</p>
+    
+    <form action="/login" method="POST">
+        <input type="password" name="password" placeholder="Enter Secret Password" required style="padding: 10px; width: 100%; margin-bottom: 20px;">
+        <button type="submit" class="btn-save" style="width: 100%;">Log In</button>
+    </form>
+</div>
